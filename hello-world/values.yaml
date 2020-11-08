@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: ksalrin/waypointtest:v3
+  repository: ksalrin/hello-world:v4
   pullPolicy: IfNotPresent
 
 imagePullSecrets: []

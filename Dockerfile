@@ -3,6 +3,7 @@ FROM python:3
 ## Copy all the packages
 COPY . /app
 ## Change the default folder 
+RUN make /app
 WORKDIR /app
 ## Install all packages
 RUN pip install -r /app/requirements.txt

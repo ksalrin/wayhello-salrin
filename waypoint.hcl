@@ -11,20 +11,16 @@ app "hello-world" {
     registry {
         use "docker" {
           image = "ksalrin/hello-world"
-          tag = "v3"
+          tag = "v4"
           encoded_auth = filebase64("./dockerAuth.json")
         }
     }
  }
 
   deploy { 
-    use "kubernetes" {
-    probe_path = "/"
+    use "exec" {
+      command = ["helm", "install", "hello-world", "./hello-world", "--namespace", "tools"]
     }
   }
 
-  release {
-    use "kubernetes" {
-    }
-  }
 }
