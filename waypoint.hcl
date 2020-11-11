@@ -21,14 +21,16 @@ app "hello-world" {
 
    deploy {
      use "kubernetes" {
-       service_port = 5000 
+       service_port = 5000
        namespace = "tools"
+       annotations = {"kubernetes.io/ingress.class":"nginx","cert-manager.io/cluster-issuer":"letsencrypt-prod"}
     }
   }
 
    release {
       use "kubernetes" {
         port = 80
+        namespace = "tools"
      }
    }
   
